@@ -1,13 +1,19 @@
 <div class="cover">
   <div class="container">
     <div class="row">
-      <div class="col-md-4 col-md-offset-7">
+      <div class="col-md-6 col-md-offset-1">
+        <div class="desc">
+          <h2>Welcome to AC Tweet!</h2>
+          <h3>Connect with your Alpha Camp peers!</h3>
+        </div>
+      </div>
+      <div class="col-md-4">
         <!-- login box -->
         <div class="introbox">
-          <%= form_for(:user, :url => session_path(:user)) do |f| %>
-            <input type="email" name="email" id="email" class="form-control" placeholder="Email"> 
+          <%= form_for(:user, url: session_path(:user)) do |f| %>
+            <input type="email" name="user[email]" id="user_email" class="form-control" placeholder="Email"> 
             <div class="row" style="margin-top: 5px; margin-bottom: 5px;">
-              <div class="col-md-8"><input type="password" name="password" id="password" class="form-control" placeholder="Password"></div>
+              <div class="col-md-8"><input type="password" name="user[password]" id="user_password" class="form-control" placeholder="Password"></div>
               <div class="col-md-4"><%= f.submit 'Sign in', class: 'btn btn-default' %></div>
             </div>
             <%= f.check_box :remember_me %>
@@ -19,20 +25,21 @@
         <div class="introbox" style="margin-top: 10px;">
           <h4>New to AC-Tweet? <span style="color: grey;">Sign up</span></h4>
           <%= form_for(:user, url: registration_path(:user)) do |f| %>
-            
+              
+
             <div class="field">
-              <input type="email" id="email" name="type" class="form-control" placeholder="Email">
+              <input type="email" id="user_email" name="user[email]" class="form-control" placeholder="Email">
             </div>
 
             <div class="field">
               <% if @minimum_password_length %>
               <em>(<%= @minimum_password_length %> characters minimum)</em>
               <% end %>
-              <input type="password" name="password" id="password" class="form-control" placeholder="Password" style="margin-top: 5px; margin-bottom: 5px;">
+              <input type="password" name="user[password]" id="user_password" class="form-control" placeholder="Password" style="margin-top: 5px; margin-bottom: 5px;">
             </div>
 
             <div class="field">
-              <input type="password" name="password_confirmation" id="password_confirmation" class="form-control" placeholder="Confirm Password" style="margin-bottom: 5px;">
+              <input type="password" name="user[password_confirmation]" id="user_password_confirmation" class="form-control" placeholder="Confirm Password" style="margin-bottom: 5px;">
             </div>
 
             <div class="actions">

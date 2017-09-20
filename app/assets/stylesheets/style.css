@@ -4,11 +4,18 @@ body {
 } 
 
 .cover {
-  background: url('cover') center center no-repeat;
+  background: url('cover7') bottom left no-repeat;
   background-size: cover;
   height: 100%;
   width: 100%;
   display: table;
+}
+
+.desc {
+  margin-top: 20vh;
+  color: white;
+  text-shadow: 0 0 1px black;
+  /*margin-top: 50px;*/
 }
 
 .introbox {
