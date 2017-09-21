@@ -1,0 +1,28 @@
+<h1>Tweet Index  ------ Test Test</h1>
+
+
+<%= form_for :tweet, url: tweets_path, method: :post, remote: true do |f| %>
+
+			 <%= f.text_field :body %>
+			
+<% end %>
+			
+	 
+	
+	 
+
+
+
+ <% @tweets.each do |tweet|	%>
+	  
+			 <%= tweet.body %>
+			
+
+<%= link_to "Delete", tweet_path(id: tweet.id), method: :delete %>
+<%= link_to "Reply", new_tweet_reply_path(tweet_id: tweet.id) %>
+
+ <% end	%>
+
+
+
+

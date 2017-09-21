@@ -1,0 +1,22 @@
+<h1>Replies New!!!!! Replies New!!!!!!!!!</h1>
+
+
+<%= form_for @reply, url: tweet_replies_path(tweet_id: @tweet.id), method: :post do |f| %>
+
+			 <%= f.text_field :body %>
+			
+<% end %>
+
+
+ 
+<% @tweet.replies.each do |tweet|	%>
+	  
+			 <%= tweet.body %>
+			
+		
+
+
+ <% end	%>
+
+
+
