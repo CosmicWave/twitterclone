@@ -1,8 +1,12 @@
 html,
 body {
     height: 100%;
+    background-color: #E6ECF0;
 } 
 
+/* ----------------------------------
+ * index root_path page:
+ * ---------------------------------- */
 .cover {
   background: url('cover7') bottom left no-repeat;
   background-size: cover;
@@ -32,6 +36,71 @@ body {
   top: 50px;
   width: 100%;
 }
+
+footer {
+  position: absolute;
+  bottom: 20px;
+  left: 37vw;
+  color: white;
+  text-shadow: 0 0 5px black;
+}
+
+/* ----------------------------------
+ * Tweet page
+ * ---------------------------------- */
+
+ .tweets {
+  width: 100%;
+  margin-top: 70px;
+
+ }
+
+ .box {
+  background-color: #FFFFFF;
+  width: 100%;
+ }
+
+ .boxwrap {
+  padding: 5px;
+ }
+
+ .userpic {
+  text-align: center;
+  height: 100px;
+  background-color: #1DA1F2;
+  color: white;
+  padding-top: 20px;
+ }
+
+ .userpic span {
+  font-size: 50px;
+ }
+
+ .username {
+  text-align: center;
+  padding-right: 5px;
+ }
+
+ .status {
+  padding: 10px;
+ }
+
+ .statushead {
+  font-size: 12px;
+  font-weight: bold; 
+ }
+
+ .statsnum {
+  font-size: 20px;
+  font-weight: bolder;
+  color: #1DA1F2;
+ }
+
+ .tweettime {
+  color: grey;
+  font-size: 12px;
+  font-weight: bolder;
+ }
 
 /* ----------------------------------
  * navbar

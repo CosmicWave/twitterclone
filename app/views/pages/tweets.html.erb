@@ -1,0 +1,47 @@
+<div class="tweets">
+  <div class="container">
+    <div class="row">
+      <!-- User Profile Box (left) -->
+      <div class="col-md-3">
+        <div class="box">
+          <div class="userpic">
+            <span><i class="glyphicon glyphicon-camera"></i></span>
+          </div>
+          <div class="username">
+            <h4><%= @username %></h4>
+          </div>
+          <div class="status">
+            <div class="row">
+              <div class="col-md-4">
+                <div class="statushead">Tweets</div>
+                <div class="statsnum">0</div>
+              </div>
+              <div class="col-md-4">
+                <div class="statushead">Following</div>
+                <div class="statsnum">0</div>
+              </div>
+              <div class="col-md-4">
+                <div class="statushead">Followers</div>
+                <div class="statsnum">0</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Tweets Box (Center) -->
+      <div class="col-md-6">
+        <div class="box">
+          <div class="boxwrap">
+            @<%= @username %>
+            <span class="tweettime">. 3h</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="box">
+          New Tweet
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

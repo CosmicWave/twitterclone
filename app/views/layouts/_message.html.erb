@@ -1,14 +1,14 @@
 <div class="message">
   <% if notice %>
     <div class="alert alert-success alert-dismissable">
-      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-      <strong>Notice!</strong> <%= notice %>
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+       <%= notice %>
     </div>
   <% end %>
   <% if alert %>
     <div class="alert alert-danger alert-dismissable">
-      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-      <strong>Alert!</strong> <%= alert %>
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+       <%= alert %>
     </div>
   <% end %>
 </div>
