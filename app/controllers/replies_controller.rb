@@ -2,7 +2,6 @@ class RepliesController < ApplicationController
 
 	def index
 		@replies = Reply.all
-		
 	end
 
 	def new
@@ -15,10 +14,12 @@ class RepliesController < ApplicationController
 		reply_params = params.require(:reply).permit(:body) 
 		@reply = Reply.new(reply_params)
 		@reply.tweet = @tweet
+		@reply.user = current_user
 		if @reply.save
 			flash[:notice] = 'Successfully Created!!'
 			redirect_to tweets_path
 		else
+
 			flash.now[:notice] = 'Not Successfully Created, Try Again'
 			render :new
 		end
@@ -38,7 +39,7 @@ class RepliesController < ApplicationController
     
 
     def update
-        reply_params = params.require(:reply).permit(:body, :tweet_id)
+        reply_params = params.require(:reply).permit(:body)
         @tweet = Tweet.find(params[:tweet_id])
 		@reply = Reply.find_by(id: params[:id])        
         if @reply.update(reply_params)
@@ -51,8 +52,14 @@ class RepliesController < ApplicationController
     end
 
 
+
+
+
+
+
+
     def destroy
-		
+		@tweet = Tweet.find(params[:tweet_id])
 		@reply = Reply.find_by(id: params[:id])  
 		@reply.destroy
 		redirect_to tweets_path

@@ -1,0 +1,9 @@
+<h1>Tweet Edit</h1>
+
+<%= form_for :tweet, url: tweet_path(id: @tweet), method: :put do |f| %>
+
+			 <%= f.text_field :body %>
+			
+			<%= f.submit "Submit" %>
+<% end %>
+

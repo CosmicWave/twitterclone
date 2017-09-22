@@ -1,0 +1,8 @@
+<h1>Replies Edit</h1>
+
+<%= form_for @reply, url: tweet_reply_path(tweet_id: @tweet, id: @reply), method: :put do |f| %>
+
+			 <%= f.text_field :body %>
+			
+			<%= f.submit "Submit" %>
+<% end %>
