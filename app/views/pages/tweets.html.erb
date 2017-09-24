@@ -101,10 +101,8 @@
                     -->
                     <% likecheck = tweet.likes.find_by(user_id: current_user.id) %>
                     <% if likecheck != nil %>
-                      <% like = current_user.id %>
-                      <%= link_to tweet_like_path(tweet_id: tweet.id, id: like), method: :delete do %>
-                        <% user_id = current_user.id %>
-                        <button style="color: #1DA1F2;" id="like_user_id" name="like[user_id]" data-toggle="tooltip" data-placement="top" title="<%= @usernn %>!">
+                      <%= link_to tweet_like_path(tweet_id: tweet.id, id: likecheck.id), method: :delete do %>
+                        <button style="color: #1DA1F2;" data-toggle="tooltip" data-placement="top" title="<%= @usernn %>!">
                           <span class="glyphicon glyphicon-heart"></span><small> <%= a.count %></small>
                         </button>
                       <% end %>
@@ -125,9 +123,13 @@
                    reply function 
                   -->
                   <div class="col-md-2">
+                    <%= link_to new_tweet_reply_path(tweet_id: tweet.id) do %>
                     <button style="color: #434A54;">
                       <span class="glyphicon glyphicon-comment" data-toggle="tooltip" data-placement="top" title="Reply"></span><small> <%= if tweet.replies.count != 0 then tweet.replies.count end %></small>
                     </button>
+                    <% end %>
+
+
                   </div>
                   <!--
                    end of reply function 
