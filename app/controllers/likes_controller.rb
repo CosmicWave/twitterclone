@@ -10,7 +10,7 @@ class LikesController < ApplicationController
   end
 
   def destroy
-    like = Like.find_by(user_id:params[:id])
+    like = Like.find_by(tweet_id:params[:tweet_id])
     
     # byebug
     like.destroy

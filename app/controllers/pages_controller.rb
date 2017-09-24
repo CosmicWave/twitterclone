@@ -27,7 +27,13 @@ class PagesController < ApplicationController
     @usertweets = Tweet.where(user_id:@user).order(:created_at).reverse
     @userstweets = Tweet.all.order(:created_at).reverse
 
-    
+    # user tweets count
+    user = current_user.id
+    @tweets = Tweet.where(user_id:user)
+
+    # Tweet Reply form
+    # tweet = 
+    # @reply = @tweetid.replies.new
 
   end
   

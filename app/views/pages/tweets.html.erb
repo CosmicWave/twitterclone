@@ -16,7 +16,7 @@
             <div class="row">
               <div class="col-md-4">
                 <div class="statushead">Tweets</div>
-                <div class="statsnum">0</div>
+                <div class="statsnum"><%= @tweets.count %></div>
               </div>
               <div class="col-md-4">
                 <div class="statushead">Following</div>
@@ -30,6 +30,7 @@
           </div>
         </div>
       </div>
+
       <!-- 
         Tweets Box (Center)
       -->
@@ -44,25 +45,39 @@
           </a>
           <% end %>
         </div>
+        
+        <!--
+         check for any tweets 
+        -->
         <% if Tweet.count == 0 %>
           <i>There are no tweets.</i>
+        
         <% else %>
+
+        <!--
+         call each tweet 
+        -->
         <% @userstweets.each do |tweet| %>
+        <% user = tweet.user_id %>
+        <% usernamee = User.find(user).email %>
+        <% @usernamee, *rest = usernamee.split(/@/) %>
+        
         <div class="box">
           <div class="boxwrap">
             <div class="row">
               <div class="col-md-1"><div class="profilepic img-circle"><i class="glyphicon glyphicon-camera"></i></div></div>
               <div class="col-md-11">
-                <% user = tweet.user_id %>
-                <% usernamee = User.find(user).email %>
-                <% username, *rest = usernamee.split(/@/) %>
-                <strong>@<%= username %></strong>
+                <strong>@<%= @usernamee %></strong>
                 <span class="tweettime">&bull; <%= time_ago_in_words(tweet.created_at) %> ago </span>
                 <div><%= tweet.body %></div>
                 <div class="row tooltip-tweet" style="margin-top: 20px;">
                   <div class="col-md-2">
                     <% tweet_id = tweet.id %>
                     <% a = Like.where(tweet_id:tweet_id) %>
+
+                    <!-- 
+                    function for like by whoever using tooltip 
+                    -->
                     <% if a.count == 0 %>
                       <% @usernn = 'Like!' %>
                     <% else %>
@@ -77,10 +92,16 @@
                         <% end %>
                       <% end %>
                     <% end %>
+                    <!-- 
+                    end of like by whoever function 
+                    -->
+                    
+                    <!-- 
+                    check if the user has liked a tweet 
+                    -->
                     <% likecheck = tweet.likes.find_by(user_id: current_user.id) %>
                     <% if likecheck != nil %>
                       <% like = current_user.id %>
-                      
                       <%= link_to tweet_like_path(tweet_id: tweet.id, id: like), method: :delete do %>
                         <% user_id = current_user.id %>
                         <button style="color: #1DA1F2;" id="like_user_id" name="like[user_id]" data-toggle="tooltip" data-placement="top" title="<%= @usernn %>!">
@@ -94,8 +115,24 @@
                       </button>
                       <% end %>
                     <% end %>
+                    <!-- 
+                    end of check if user liked a tweet 
+                    -->
+
                   </div>
-                  <div class="col-md-1"><i class="glyphicon glyphicon-comment"></i></div>
+
+                  <!--
+                   reply function 
+                  -->
+                  <div class="col-md-2">
+                    <button style="color: #434A54;">
+                      <span class="glyphicon glyphicon-comment" data-toggle="tooltip" data-placement="top" title="Reply"></span><small> <%= if tweet.replies.count != 0 then tweet.replies.count end %></small>
+                    </button>
+                  </div>
+                  <!--
+                   end of reply function 
+                  -->
+
                 </div>
               </div>
             </div>
@@ -104,6 +141,10 @@
         <% end %>
         <% end %>
       </div>
+      <!--
+       end of  call each tweet  
+      -->
+
       <!-- 
         new tweet box (right)
       -->
