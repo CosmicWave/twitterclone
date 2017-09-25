@@ -31,9 +31,9 @@ class PagesController < ApplicationController
     user = current_user.id
     @tweets = Tweet.where(user_id:user)
 
-    # Tweet Reply form
-    # tweet = 
-    # @reply = @tweetid.replies.new
+    @userfollow = current_user
+
+    @alluser = User.all
 
   end
   

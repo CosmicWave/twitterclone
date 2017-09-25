@@ -38,7 +38,11 @@ class RepliesController < ApplicationController
     @reply = tweet.replies.new(reply_params)
     @reply.user_id = current_user.id
     @reply.save
-    redirect_back(fallback_location: root_path)
+    
+    respond_to do |f|
+      f.html { new_tweet_reply_path(tweet_id: tweet.id) }
+      f.js {render :new}
+    end
 
   end
 

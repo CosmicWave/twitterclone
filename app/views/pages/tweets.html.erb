@@ -20,14 +20,33 @@
               </div>
               <div class="col-md-4">
                 <div class="statushead">Following</div>
-                <div class="statsnum">0</div>
+                <div class="statsnum"><%= @userfollow.following.count %></div>
               </div>
               <div class="col-md-4">
                 <div class="statushead">Followers</div>
-                <div class="statsnum">0</div>
+                <div class="statsnum"><%= @userfollow.followers.count %></div>
               </div>
             </div>
           </div>
+        </div>
+
+        <div class="box" id="whotofollow">
+          <table class="table table-hover tablecont">
+            <thead>
+              <th><h5>Who to follow</h5></th>
+            </thead>
+            <tbody>
+              <% @alluser.each do |user| %>
+              <tr>
+                <td>
+                  <%= user.email %>
+                  <button class="btn btn-default btn-sm pull-right">Follow</button>
+                </td>
+              </tr>
+              <% end %>
+            </tbody>
+          </table>
+
         </div>
       </div>
 
@@ -101,13 +120,13 @@
                     -->
                     <% likecheck = tweet.likes.find_by(user_id: current_user.id) %>
                     <% if likecheck != nil %>
-                      <%= link_to tweet_like_path(tweet_id: tweet.id, id: likecheck.id), method: :delete do %>
+                      <%= link_to tweet_like_path(tweet_id: tweet.id, id: likecheck.id), method: :delete, remote: true do %>
                         <button style="color: #1DA1F2;" data-toggle="tooltip" data-placement="top" title="<%= @usernn %>!">
-                          <span class="glyphicon glyphicon-heart"></span><small> <%= a.count %></small>
+                          <span class="glyphicon glyphicon-heart"></span><small id="likecount"> <%= a.count %></small>
                         </button>
                       <% end %>
                     <% elsif likecheck == nil %>
-                      <%= link_to tweet_likes_path(tweet_id: tweet.id),method: :post do %>
+                      <%= link_to tweet_likes_path(tweet_id: tweet.id),method: :post, remote: true do %>
                       <button style="color: #434A54;" name="" id="tweet_body" data-toggle="tooltip" data-placement="top" title="<%= @usernn %>!">
                         <span class="glyphicon glyphicon-heart"></span><small> <%= a.count %></small>
                       </button>
@@ -153,7 +172,7 @@
       <div class="col-md-3">
         <div class="boxwrap usertweet">
           <%= form_for @tweet, url: tweets_path, method: :post do |f| %>
-            <textarea row="2" name="tweet[body]" id="tweet_body" class="form-control" placeholder="New Tweet"></textarea>
+            <textarea row="2" name="tweet[body]" id="tweet_body" class="form-control" placeholder="New Tweet" required></textarea>
             <button type="submit" name="commit" class="btn btn-primary" data-type="last">Tweet</button>
             <!-- <%= f.submit "Tweet", class: 'btn btn-primary pull-righ' %> -->
           <% end %>
@@ -167,13 +186,21 @@
             <% @usertweets.each do |tweet| %>
               <li class="list-group-item">
                 <%= link_to tweet_path(id:tweet.id), method: :delete do %>
-                <button class="trash" data-toggle="tooltip" data-placement="top" title="Delete tweet!">
-                  <span class="glyphicon glyphicon-trash"></span>
+                <button class="trash">
+                  <span class="glyphicon glyphicon-trash" data-toggle="tooltip" data-placement="top" title="Delete tweet!"></span>
                 </button>
                 <% end %>
-                <span class="badge badge-primary">0</span>
+                
+                <span class="badge badge-default glyphicon glyphicon-comment">
+                    <%= tweet.replies.count %>
+                </span><span class="badge badge-default glyphicon glyphicon-heart">
+                    <%= tweet.likes.count %>
+                </span>
+                <%= link_to new_tweet_reply_path(tweet_id: tweet.id) do %>
                 <%= tweet.body %>
+                <% end %>
               </li>
+              
             <% end %>
           </ul>
         </div>

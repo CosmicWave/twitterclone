@@ -5,8 +5,7 @@ class LikesController < ApplicationController
     like = tweet.likes.create(tweet_id: params[:tweet_id])
     like.user_id = current_user.id
     like.save
-    redirect_back(fallback_location: root_path)
-
+    
   end
 
   def destroy

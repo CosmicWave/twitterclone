@@ -6,8 +6,8 @@
             <div class="row">
               <div class="col-md-1"><div class="profilepic img-circle"><i class="glyphicon glyphicon-camera"></i></div></div>
               <div class="col-md-11">
-                <strong>@<%= @username %></strong>
-                <span class="tweettime">&bull; <%= time_ago_in_words(@tweet.created_at) %> ago </span>
+                <small>@<%= @username %>
+                <span class="tweettime">&bull; <%= time_ago_in_words(@tweet.created_at) %> ago </span></small>
                 <div><%= @tweet.body %></div>
                 <div class="row tooltip-tweet" style="margin-top: 20px;">
                   <div class="col-md-2">
@@ -65,24 +65,27 @@
               <% username, *rest = user.split(/@/) %>
                 <% if reply.user_id == current_user.id %>
 
-                  <small class="pull-right">
+                  <small>
                     <%= link_to tweet_reply_path(tweet_id: reply.tweet_id, id: reply.id), method: :delete do %>
                     <span class="glyphicon glyphicon-trash" style="margin-left: 10px;"></span>
                     <% end %>
                   </small>
 
                 <% end %>
-                <small>@<%= username %> says: </small>
-                <p><%= reply.body %></p>
-              
-              <hr>
+                
+                
+                  <small id="replyuser">@<%= username %> says: </small>
+                  <p id="replybody"><%= reply.body %></p>
+                  <hr>
+             <div id="replies"></div>   
              <% end %>
+             
              <!--
               End All relies 
              -->
             
             <!-- new reply -->
-            <%= form_for @reply, url: tweet_replies_path(tweet_id: @tweet.id), method: :post do |f| %>
+            <%= form_for @reply, url: tweet_replies_path(tweet_id: @tweet.id), method: :post, remote: true do |f| %>
             <textarea class="form-control" name="reply[body]" rows="3"></textarea>
             <button class="pull-right btn btn-primary" name="commit" style="margin-top: 10px; margin-left: 3px;">Reply</button>
             <% end %>

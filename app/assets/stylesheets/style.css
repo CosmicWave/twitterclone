@@ -72,6 +72,20 @@ footer {
   width: 100%;
  }
 
+ #whotofollow {
+  padding: 5px;
+  max-height: 300px;
+ }
+
+ #whotofollow button:hover {
+  background: #1DA1F2;
+ }
+
+ .tablecont { overflow; hidden;}
+
+
+.tablecont tbody { display: block; max-height: 200px; overflow: auto;}
+
  .tweetshead h4 {
   display: inline-block;
   margin-right: 5px;

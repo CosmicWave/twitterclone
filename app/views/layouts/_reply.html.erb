@@ -1,0 +1,13 @@
+<% reply = Reply.last %>
+<small>
+  <%= link_to tweet_reply_path(tweet_id: reply.tweet_id, id: reply.id), method: :delete do %>
+  <span class="glyphicon glyphicon-trash" style="margin-left: 10px;"></span>
+  <% end %>
+</small>
+
+<% user = Reply.last.user_id %>
+<% username = User.find(user).email %>
+<% username, *rest = username.split(/@/) %>
+<small id="replyuser">@<%= username %> says: </small>
+<p id="replybody"><%= Reply.last.body %></p>
+<hr>
