@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   root to: "tweets#index"
 
  # get 'tweets', to: 'pages#tweets'
+resources :users, only: [:show] do
+resources :followings, only: [:create, :destroy]
+end
 
   resources :tweets do
   	resources :replies

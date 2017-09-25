@@ -8,7 +8,14 @@
 			<%= f.submit "Submit" %>
 <% end %>
 			
-		 
+	
+<div class="buttons"><%= link_to "Add a Photo", new_tweet_path %></div>
+
+
+
+
+
+
 
 
 <% @tweets.each do |tweet|	%>
@@ -38,18 +45,15 @@
 	
 
 
-	<% if tweet.likes.find_by(user_id: current_user.id) %>
-	<% like = tweet.likes.find_by(user_id: current_user.id) %>
-	<%= link_to "Unlike", tweet_like_path(tweet_id: tweet.id, id: like.id),method: :delete, class: "btn btn-danger" %></br>
-	<% else %>
-	<%= link_to "Like", tweet_likes_path(tweet_id: tweet.id),method: :post, class: "btn btn-primary" %></br>
-	<% end	%>   
 
 
 <% end	%>
 
 
-
+<form action="/action_page.php">
+  <input type="file" name="pic" accept="image/*">
+  <input type="submit">
+</form>
 
 
 

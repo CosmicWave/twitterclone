@@ -10,13 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170920072332) do
+ActiveRecord::Schema.define(version: 20170923164739) do
 
   create_table "likes", force: :cascade do |t|
     t.integer "user_id"
     t.integer "tweet_id"
     t.index ["tweet_id"], name: "index_likes_on_tweet_id"
     t.index ["user_id"], name: "index_likes_on_user_id"
+  end
+
+  create_table "relationships", force: :cascade do |t|
+    t.integer "follower_id_id"
+    t.integer "followed_id_id"
+    t.index ["followed_id_id"], name: "index_relationships_on_followed_id_id"
+    t.index ["follower_id_id"], name: "index_relationships_on_follower_id_id"
   end
 
   create_table "replies", force: :cascade do |t|
@@ -31,6 +38,7 @@ ActiveRecord::Schema.define(version: 20170920072332) do
 
   create_table "tweets", force: :cascade do |t|
     t.text "body"
+    t.string "image"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -50,6 +58,7 @@ ActiveRecord::Schema.define(version: 20170920072332) do
     t.string "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "image"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

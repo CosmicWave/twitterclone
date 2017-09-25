@@ -1,0 +1,9 @@
+class RepliesController < ApplicationController
+
+
+
+
+
+
+
+end

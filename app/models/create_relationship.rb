@@ -1,2 +1,0 @@
-class CreateRelationship < ApplicationRecord
-end

@@ -24,7 +24,7 @@ class TweetsController < ApplicationController
 	end
 
 	def create 
-		tweet_params = params[:tweet].permit(:body)
+		tweet_params = params[:tweet].permit(:body, :image)
 		@tweet = Tweet.new(tweet_params)
 		@tweet.user = current_user
 		
@@ -42,7 +42,7 @@ class TweetsController < ApplicationController
 
 
 	def update
-		tweet_params = params[:tweet].permit(:body)
+		tweet_params = params[:tweet].permit(:body, :image)
 		@tweet = Tweet.find_by(id: params[:id])
 		@tweet.user = current_user
 		if @tweet.update(tweet_params)
