@@ -35,6 +35,12 @@ class PagesController < ApplicationController
 
     @alluser = User.all
 
+    @noti = Notification.where(tweet: @user)
+    
+   
+
+    
+
   end
   
   

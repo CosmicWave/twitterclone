@@ -85,7 +85,7 @@
              -->
             
             <!-- new reply -->
-            <%= form_for @reply, url: tweet_replies_path(tweet_id: @tweet.id), method: :post, remote: true do |f| %>
+            <%= form_for @reply, url: tweet_replies_path(tweet_id: @tweet.id), method: :post do |f| %>
             <textarea class="form-control" name="reply[body]" rows="3"></textarea>
             <button class="pull-right btn btn-primary" name="commit" style="margin-top: 10px; margin-left: 3px;">Reply</button>
             <% end %>

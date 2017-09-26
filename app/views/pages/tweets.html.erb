@@ -37,12 +37,29 @@
             </thead>
             <tbody>
               <% @alluser.each do |user| %>
+              <% if current_user != user %>
+              <% email = user.email %>
+              <% useremail, *rest = email.split(/@/) %>
               <tr>
                 <td>
-                  <%= user.email %>
-                  <button class="btn btn-default btn-sm pull-right">Follow</button>
+                  <% if current_user.following?(user) %>
+
+                    <%= form_for(current_user.active_followings.find_by(followed_id: user.id),
+                                 html: { method: :delete }) do |f| %>
+                      <button class="btn btn-sm pull-right" name="commit">Unfollow</button>
+                      <%= useremail %>
+                    <% end %>
+                  <% else %>
+                    
+                    <%= form_for(current_user.active_followings.build) do |f| %>
+                      <%= hidden_field_tag :followed_id, user.id %>
+                      <button class="btn btn-default btn-sm pull-right" name="commit">follow</button>
+                    <% end %>
+                    <%= useremail %>
+                  <% end %>
                 </td>
               </tr>
+              <% end %>
               <% end %>
             </tbody>
           </table>
@@ -77,6 +94,8 @@
          call each tweet 
         -->
         <% @userstweets.each do |tweet| %>
+        <% user = User.find(tweet.user_id) %>
+        <% if current_user.following?(user) %>
         <% user = tweet.user_id %>
         <% usernamee = User.find(user).email %>
         <% @usernamee, *rest = usernamee.split(/@/) %>
@@ -120,13 +139,13 @@
                     -->
                     <% likecheck = tweet.likes.find_by(user_id: current_user.id) %>
                     <% if likecheck != nil %>
-                      <%= link_to tweet_like_path(tweet_id: tweet.id, id: likecheck.id), method: :delete, remote: true do %>
+                      <%= link_to tweet_like_path(tweet_id: tweet.id, id: likecheck.id), method: :delete do %>
                         <button style="color: #1DA1F2;" data-toggle="tooltip" data-placement="top" title="<%= @usernn %>!">
                           <span class="glyphicon glyphicon-heart"></span><small id="likecount"> <%= a.count %></small>
                         </button>
                       <% end %>
                     <% elsif likecheck == nil %>
-                      <%= link_to tweet_likes_path(tweet_id: tweet.id),method: :post, remote: true do %>
+                      <%= link_to tweet_likes_path(tweet_id: tweet.id),method: :post do %>
                       <button style="color: #434A54;" name="" id="tweet_body" data-toggle="tooltip" data-placement="top" title="<%= @usernn %>!">
                         <span class="glyphicon glyphicon-heart"></span><small> <%= a.count %></small>
                       </button>
@@ -159,6 +178,7 @@
             </div>
           </div>
         </div>
+        <% end %>
         <% end %>
         <% end %>
       </div>

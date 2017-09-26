@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :tweets
   has_many :likes
   has_many :replies
+  has_many :notifications
 
   has_many :active_followings, class_name:  "Following",
                                   foreign_key: "follower_id",
