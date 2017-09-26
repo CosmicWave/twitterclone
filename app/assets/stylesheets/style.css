@@ -1,7 +1,7 @@
 
 body {
     /*height: 100%;*/
-    background-color: #E6ECF0;
+    background-color: #ffd7cc;
 } 
 
  /* --------------------------------
@@ -185,7 +185,7 @@ footer {
  }
 
  .usertweet {
-  background-color: #E8F5FD;
+  background-color: #ffbaa5;
   padding: 10px;
   height: 100%;
  }
@@ -211,7 +211,7 @@ footer {
  .userpic {
   text-align: center;
   height: 100px;
-  background-color: #1DA1F2;
+  background-color: #FF6327;
   color: white;
   padding-top: 20px;
  }
@@ -237,7 +237,7 @@ footer {
  .statsnum {
   font-size: 20px;
   font-weight: bolder;
-  color: #1DA1F2;
+  color: #FF6327;
  }
 
  .tweettime {
@@ -252,7 +252,7 @@ footer {
   height: 40px;
   text-align: center;
   border-radius: 50%;
-  background-color: #1DA1F2;
+  background-color: #FF6327;
   color: white;
   font-size: 30px;
  }
@@ -306,7 +306,7 @@ footer {
     opacity: .7;
     filter:alpha(opacity=70);
     transition: opacity .4s ease-in-out;
-    border-bottom: 3px solid #50c1e9;
+    border-bottom: 3px solid #FF6327;
 }
 .navbar-custom .navbar-brand:hover,
 .navbar-custom .navbar-brand:active {
