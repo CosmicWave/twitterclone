@@ -1,14 +1,25 @@
 html,
 body {
     height: 100%;
+    background-color: #E6ECF0;
 } 
 
+/* ----------------------------------
+ * index root_path page:
+ * ---------------------------------- */
 .cover {
-  background: url('cover') center center no-repeat;
+  background: url('cover7') bottom left no-repeat;
   background-size: cover;
   height: 100%;
   width: 100%;
   display: table;
+}
+
+.desc {
+  margin-top: 20vh;
+  color: white;
+  text-shadow: 0 0 1px black;
+  /*margin-top: 50px;*/
 }
 
 .introbox {
@@ -22,9 +33,139 @@ body {
 
 .message {
   position: absolute;
-  top: 50px;
-  width: 100%;
+  top: 0;
+  left: 20%;
+  width: 50%;
+  z-index: 2010;
 }
+
+footer {
+  position: absolute;
+  bottom: 20px;
+  left: 37vw;
+  color: white;
+  text-shadow: 0 0 5px black;
+}
+
+/* ----------------------------------
+ * Tweet page
+ * ---------------------------------- */
+
+
+ .profile-image {
+    padding-bottom: 40px;
+  
+ }
+
+
+
+ .tweets {
+  width: 100%;
+  margin-top: 70px;
+
+ }
+
+ .box {
+  background-color: #FFFFFF;
+  width: 100%;
+  margin-bottom: 10px;
+ }
+
+ .boxwrap {
+  padding: 5px;
+  width: 100%;
+ }
+
+ .tweetshead h4 {
+  display: inline-block;
+  margin-right: 5px;
+ }
+
+ .tweetshead a {
+  color: #20A2F2;
+ }
+
+ .tweetshead a:hover {
+  text-decoration: underline;
+ }
+
+ .usertweet {
+  background-color: #E8F5FD;
+  padding: 10px;
+  height: 100%;
+ }
+
+ .trashtweet {
+  font-size: 10px;
+ }
+
+ .usertweets {
+  margin-top: 5px;
+ }
+
+ .usertweets button {
+  border: none;
+  background: none;
+ }
+
+ .usertweet button {
+  margin-top: 5px;
+  float: right;
+ }
+
+ .userpic {
+  text-align: center;
+  height: 100px;
+  background-color: #1DA1F2;
+  color: white;
+  padding-top: 20px;
+ }
+
+ .userpic span {
+  font-size: 50px;
+ }
+
+ .username {
+  text-align: center;
+  padding-right: 5px;
+ }
+
+ .status {
+  padding: 10px;
+ }
+
+ .statushead {
+  font-size: 12px;
+  font-weight: bold; 
+ }
+
+ .statsnum {
+  font-size: 20px;
+  font-weight: bolder;
+  color: #1DA1F2;
+ }
+
+ .tweettime {
+  color: grey;
+  font-size: 12px;
+  font-weight: bolder;
+
+ }
+
+ .profilepic {
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  border-radius: 50%;
+  background-color: #1DA1F2;
+  color: white;
+  font-size: 30px;
+ }
+
+ .tooltip-tweet button {
+  border:none;
+  background: none;
+ }
 
 /* ----------------------------------
  * navbar
@@ -38,7 +179,7 @@ body {
     background-color: rgba(255, 255, 255, .9);
     width: 100%;
     z-index: 2000;
-    /*box-shadow: 0 0 10px black;*/
+    box-shadow: 0 0 10px black;
 }
 .navbar-custom .nav li a {
     display: block;
@@ -97,3 +238,460 @@ body {
     background-color: #50c1e9;
   }
 }
+
+
+
+
+
+
+
+
+/* ---- Edit page  ---- */
+
+.registration-image-edit {
+  background-image: url(/assets/snowy-mountains.jpeg);
+  background-attachment:fixed;
+  background-repeat:no-repeat;
+  background-size:cover;
+  height:710px;
+  }
+
+
+.circular-image {
+  border-radius:  80%;
+}
+
+.img-circular {
+ width: 150px;
+ height: 150px;
+ background-size: cover;
+ display: block;
+ border-radius: 80px;
+ -webkit-border-radius: 50px;
+ -moz-border-radius: 50px;
+}
+
+
+.h2-edit {
+  text-align: center;
+  padding-top: 50px;
+}
+
+
+.left-box-edit {
+  background-color: white;
+  /*border-radius: 10px;*/
+  padding: 10px;
+  margin-left:80px;
+
+  /*box-shadow: 0 0 5px black;*/
+  margin-top: 0px;
+  width: 80%;
+}
+
+
+
+.right-box-edit-2 {
+  background-color: white;
+  /*border-radius: 10px;*/
+  padding: 30px;
+  /*box-shadow: 0 0 5px black;*/
+  margin-top: 0px;
+  width: 80%;
+  height: 520px;
+  margin-right:30px;
+}
+
+.field-edit {
+  font-size: 12px;
+  font-family: 'Slabo 27px', serif;
+  text-align: center;
+}
+
+
+
+.cancel-box-title {
+  padding-top:50px;
+  text-align: center;
+  ffont-family: 'Slabo 27px', serif;
+}
+
+
+
+.cancel-box-content {
+ 
+  text-align: center;
+  font-family: 'Slabo 27px', serif;
+}
+
+.button-edit-position {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+
+
+
+/* ---- Clock ----- */
+
+
+
+ul { list-style:none; margin:0; padding:0 }
+#watch { font-size:1em; position:relative }
+#watch .frame-face {
+  position:relative;
+  width:30em;
+  height:30em;
+  margin:2em auto;
+  border-radius:15em;
+  background:-webkit-linear-gradient(top, #f9f9f9,#666);
+  background:-moz-linear-gradient(top, #f9f9f9,#666);
+  background:linear-gradient(to bottom, #f9f9f9,#666);
+  box-shadow:rgba(0,0,0,.8) .5em .5em 4em;
+}
+#watch .frame-face:before {
+  content:'';
+  width:29.4em;
+  height:29.4em;
+  border-radius:14.7em;
+  position:absolute;
+  top:.3em; left:.3em;
+  background:
+    -webkit-linear-gradient(135deg, rgba(246,248,249,0) 0%,rgba(229,235,238,1) 50%,rgba(205,212,217,1) 51%,rgba(245,247,249,0) 100%),
+    -webkit-radial-gradient(center, ellipse cover, rgba(246,248,249,1) 0%,rgba(229,235,238,1) 65%,rgba(205,212,217,1) 66%,rgba(245,247,249,1) 100%);
+  background:
+    -moz-linear-gradient(135deg, rgba(246,248,249,0) 0%,rgba(229,235,238,1) 50%,rgba(205,212,217,1) 51%,rgba(245,247,249,0) 100%),
+    -moz-radial-gradient(center, ellipse cover, rgba(246,248,249,1) 0%,rgba(229,235,238,1) 65%,rgba(205,212,217,1) 66%,rgba(245,247,249,1) 100%);
+  background:
+    linear-gradient(135deg, rgba(246,248,249,0) 0%,rgba(229,235,238,1) 50%,rgba(205,212,217,1) 51%,rgba(245,247,249,0) 100%),
+    radial-gradient(ellipse at center, rgba(246,248,249,1) 0%,rgba(229,235,238,1) 65%,rgba(205,212,217,1) 66%,rgba(245,247,249,1) 100%);
+}
+#watch .frame-face:after {
+  content:'';
+  width:28em;
+  height:28em;
+  border-radius:14.2em;
+  position:absolute;
+  top:.9em; left:.9em;
+  box-shadow:inset rgba(0,0,0,.2) .2em .2em 1em;
+  border:.1em solid rgba(0,0,0,.2);
+  background:-webkit-linear-gradient(top, #fff, #ccc);
+  background:-moz-linear-gradient(top, #fff, #ccc);
+  background:linear-gradient(to bottom, #fff, #ccc);
+}
+#watch .minute-marks li {
+  display:block;
+  width:.2em;
+  height:.6em;
+  background:#929394;
+  position:absolute;
+  top:50%; left:50%;
+  margin:-.4em 0 0 -.1em;
+}
+#watch .minute-marks li:first-child {transform:rotate(6deg) translateY(-12.7em)}
+#watch .minute-marks li:nth-child(2) {transform:rotate(12deg) translateY(-12.7em)}
+#watch .minute-marks li:nth-child(3) {transform:rotate(18deg) translateY(-12.7em)}
+#watch .minute-marks li:nth-child(4) {transform:rotate(24deg) translateY(-12.7em)}
+#watch .minute-marks li:nth-child(5) {transform:rotate(36deg) translateY(-12.7em)}
+#watch .minute-marks li:nth-child(6) {transform:rotate(42deg) translateY(-12.7em)}
+#watch .minute-marks li:nth-child(7) {transform:rotate(48deg) translateY(-12.7em)}
+#watch .minute-marks li:nth-child(8) {transform:rotate(54deg) translateY(-12.7em)}
+#watch .minute-marks li:nth-child(9) {transform:rotate(66deg) translateY(-12.7em)}
+#watch .minute-marks li:nth-child(10) {transform:rotate(72deg) translateY(-12.7em)}
+#watch .minute-marks li:nth-child(11) {transform:rotate(78deg) translateY(-12.7em)}
+#watch .minute-marks li:nth-child(12) {transform:rotate(84deg) translateY(-12.7em)}
+#watch .minute-marks li:nth-child(13) {transform:rotate(96deg) translateY(-12.7em)}
+#watch .minute-marks li:nth-child(14) {transform:rotate(102deg) translateY(-12.7em)}
+#watch .minute-marks li:nth-child(15) {transform:rotate(108deg) translateY(-12.7em)}
+#watch .minute-marks li:nth-child(16) {transform:rotate(114deg) translateY(-12.7em)}
+#watch .minute-marks li:nth-child(17) {transform:rotate(126deg) translateY(-12.7em)}
+#watch .minute-marks li:nth-child(18) {transform:rotate(132deg) translateY(-12.7em)}
+#watch .minute-marks li:nth-child(19) {transform:rotate(138deg) translateY(-12.7em)}
+#watch .minute-marks li:nth-child(20) {transform:rotate(144deg) translateY(-12.7em)}
+#watch .minute-marks li:nth-child(21) {transform:rotate(156deg) translateY(-12.7em)}
+#watch .minute-marks li:nth-child(22) {transform:rotate(162deg) translateY(-12.7em)}
+#watch .minute-marks li:nth-child(23) {transform:rotate(168deg) translateY(-12.7em)}
+#watch .minute-marks li:nth-child(24) {transform:rotate(174deg) translateY(-12.7em)}
+#watch .minute-marks li:nth-child(25) {transform:rotate(186deg) translateY(-12.7em)}
+#watch .minute-marks li:nth-child(26) {transform:rotate(192deg) translateY(-12.7em)}
+#watch .minute-marks li:nth-child(27) {transform:rotate(198deg) translateY(-12.7em)}
+#watch .minute-marks li:nth-child(28) {transform:rotate(204deg) translateY(-12.7em)}
+#watch .minute-marks li:nth-child(29) {transform:rotate(216deg) translateY(-12.7em)}
+#watch .minute-marks li:nth-child(30) {transform:rotate(222deg) translateY(-12.7em)}
+#watch .minute-marks li:nth-child(31) {transform:rotate(228deg) translateY(-12.7em)}
+#watch .minute-marks li:nth-child(32) {transform:rotate(234deg) translateY(-12.7em)}
+#watch .minute-marks li:nth-child(33) {transform:rotate(246deg) translateY(-12.7em)}
+#watch .minute-marks li:nth-child(34) {transform:rotate(252deg) translateY(-12.7em)}
+#watch .minute-marks li:nth-child(35) {transform:rotate(258deg) translateY(-12.7em)}
+#watch .minute-marks li:nth-child(36) {transform:rotate(264deg) translateY(-12.7em)}
+#watch .minute-marks li:nth-child(37) {transform:rotate(276deg) translateY(-12.7em)}
+#watch .minute-marks li:nth-child(38) {transform:rotate(282deg) translateY(-12.7em)}
+#watch .minute-marks li:nth-child(39) {transform:rotate(288deg) translateY(-12.7em)}
+#watch .minute-marks li:nth-child(40) {transform:rotate(294deg) translateY(-12.7em)}
+#watch .minute-marks li:nth-child(41) {transform:rotate(306deg) translateY(-12.7em)}
+#watch .minute-marks li:nth-child(42) {transform:rotate(312deg) translateY(-12.7em)}
+#watch .minute-marks li:nth-child(43) {transform:rotate(318deg) translateY(-12.7em)}
+#watch .minute-marks li:nth-child(44) {transform:rotate(324deg) translateY(-12.7em)}
+#watch .minute-marks li:nth-child(45) {transform:rotate(336deg) translateY(-12.7em)}
+#watch .minute-marks li:nth-child(46) {transform:rotate(342deg) translateY(-12.7em)}
+#watch .minute-marks li:nth-child(47) {transform:rotate(348deg) translateY(-12.7em)}
+#watch .minute-marks li:nth-child(48) {transform:rotate(354deg) translateY(-12.7em)}
+#watch .digits {
+  width:30em;
+  height:30em;
+  border-radius:15em;
+  position:absolute;
+  top:0; left:50%;
+  margin-left:-15em;
+}
+#watch .digits li {
+  font-size:1.6em;
+  display:block;
+  width:1.6em;
+  height:1.6em;
+  position:absolute;
+  top:50%; left:50%;
+  line-height:1.6em;
+  text-align:center;
+  margin:-.8em 0 0 -.8em;
+  font-weight:bold;
+}
+#watch .digits li:nth-child(1) { transform:translate(3.9em, -6.9em) }
+#watch .digits li:nth-child(2) { transform:translate(6.9em, -4em) }
+#watch .digits li:nth-child(3) { transform:translate(8em, 0) }
+#watch .digits li:nth-child(4) { transform:translate(6.8em, 4em) }
+#watch .digits li:nth-child(5) { transform:translate(3.9em, 6.9em) }
+#watch .digits li:nth-child(6) { transform:translate(0, 8em) }
+#watch .digits li:nth-child(7) { transform:translate(-3.9em, 6.9em) }
+#watch .digits li:nth-child(8) { transform:translate(-6.8em, 4em) }
+#watch .digits li:nth-child(9) { transform:translate(-8em, 0) }
+#watch .digits li:nth-child(10) { transform:translate(-6.9em, -4em) }
+#watch .digits li:nth-child(11) { transform:translate(-3.9em, -6.9em) }
+#watch .digits li:nth-child(12) { transform:translate(0, -8em) }
+#watch .digits:before {
+  content:'';
+  width:1.6em;
+  height:1.6em;
+  border-radius:.8em;
+  position:absolute;
+  top:50%; left:50%;
+  margin:-.8em 0 0 -.8em;
+  background:#121314;
+}
+#watch .digits:after {
+  content:'';
+  width:4em;
+  height:4em;
+  border-radius:2.2em;
+  position:absolute;
+  top:50%; left:50%;
+  margin:-2.1em 0 0 -2.1em;
+  border:.1em solid #c6c6c6;
+  background:-webkit-radial-gradient(center, ellipse cover, rgba(200,200,200,0), rgba(190,190,190,1) 90%, rgba(130,130,130,1) 100%);
+  background:-moz-radial-gradient(center, ellipse cover, rgba(200,200,200,0), rgba(190,190,190,1) 90%, rgba(130,130,130,1) 100%);
+  background:radial-gradient(ellipse at center, rgba(200,200,200,0), rgba(190,190,190,1) 90%, rgba(130,130,130,1) 100%);
+}
+@keyframes hours { to {transform:rotate(335deg)} }
+#watch .hours-hand {
+  width:.8em;
+  height:7em;
+  border-radius:0 0 .9em .9em;
+  background:#232425;
+  position:absolute;
+  bottom:50%; left:50%;
+  margin:0 0 -.8em -.4em;
+  box-shadow:#232425 0 0 2px;
+  transform-origin:0.4em 6.2em;
+  transform:rotate(-25deg);
+  animation:hours 43200s linear 0s infinite;
+}
+#watch .hours-hand:before {
+  content:'';
+  background:inherit;
+  width:1.8em;
+  height:.8em;
+  border-radius:0 0 .8em .8em;
+  box-shadow:#232425 0 0 1px;
+  position:absolute;
+  top:-.7em; left:-.5em;
+}
+#watch .hours-hand:after {
+  content:'';
+  width:0; height:0;
+  border:.9em solid #232425;
+  border-width:0 .9em 2.4em .9em;
+  border-left-color:transparent;
+  border-right-color:transparent;
+  position:absolute;
+  top:-3.1em; left:-.5em;
+}
+@keyframes minutes { to {transform:rotate(422deg)} }
+#watch .minutes-hand {
+  width:.8em;
+  height:12.5em;
+  border-radius:.5em;
+  background:#343536;
+  position:absolute;
+  bottom:50%; left:50%;
+  margin:0 0 -1.5em -.4em;
+  box-shadow:#343536 0 0 2px;
+  transform-origin:0.4em 11em;
+  transform:rotate(62deg);
+  animation:minutes 3600s linear 0s infinite;
+}
+@keyframes seconds { to {transform:rotate(480deg)} }
+#watch .seconds-hand {
+  width:.2em;
+  height:14em;
+  border-radius:.1em .1em 0 0/10em 10em 0 0;
+  background:#c00;
+  position:absolute;
+  bottom:50%; left:50%;
+  margin:0 0 -2em -.1em;
+  box-shadow:rgba(0,0,0,.8) 0 0 .2em;
+  transform-origin:0.1em 12em;
+  transform:rotate(120deg);
+  animation:seconds 60s steps(60, end) 0s infinite;
+}
+#watch .seconds-hand:after {
+  content:'';
+  width:1.4em;
+  height:1.4em;
+  border-radius:.7em;
+  background:inherit;
+  position:absolute;
+  left:-.65em; bottom:1.35em;
+}
+#watch .seconds-hand:before {
+  content:'';
+  width:.8em;
+  height:3em;
+  border-radius:.2em .2em .4em .4em/.2em .2em 2em 2em;
+  box-shadow:rgba(0,0,0,.8) 0 0 .2em;
+  background:inherit;
+  position:absolute;
+  left:-.35em; bottom:-3em;
+}
+#watch .digital-wrap {
+  width:9em;
+  height:3em;
+  border:.1em solid #222;
+  border-radius:.2em;
+  position:absolute;
+  top:50%; left:50%;
+  margin:3em 0 0 -4.5em;
+  overflow:hidden;
+  background:#4c4c4c;
+  background:-webkit-linear-gradient(top, #4c4c4c 0%,#0f0f0f 100%);
+  background:-moz-linear-gradient(top, #4c4c4c 0%, #0f0f0f 100%);
+  background:-ms-linear-gradient(top, #4c4c4c 0%,#0f0f0f 100%);
+  background:-o-linear-gradient(top, #4c4c4c 0%,#0f0f0f 100%);
+  background:linear-gradient(to bottom, #4c4c4c 0%,#0f0f0f 100%);
+}
+#watch .digital-wrap ul {
+  float:left;
+  width:2.85em;
+  height:3em;
+  border-right:.1em solid #000;
+  color:#ddd;
+  font-family:Consolas, monaco, monospace;
+}
+#watch .digital-wrap ul:last-child { border:none }
+#watch .digital-wrap li {
+  font-size:1.5em;
+  line-height:2;
+  letter-spacing:2px;
+  text-align:center;
+  position:relative;
+  left:1px;
+}
+#watch .digit-minutes li {
+  animation:dsm 3600s steps(60, end) 0s infinite;
+}
+#watch .digit-seconds li {
+  animation:dsm 60s steps(60, end) 0s infinite;
+}
+@keyframes dsm {
+  to { transform:translateY(-120em) }
+}
+
+
+.clock-position {
+  padding-bottom: 100px;
+
+}
+
+
+
+
+/* ---- Twitter bird ---- */
+@twitter: #1ab7ea;
+
+.twitter-bird-animation {
+  background-image: url("http://www.cloud.elalemanyo.de/tmp/twitter-bird-sprite-e0FhFKaXRI.png");
+  background-size: cover;
+  display: block;
+  position: relative;
+  height: 150px;
+  width: 150px;
+  margin: 120px auto 0 auto;
+  animation: 0.3s fly step-end infinite;
+}
+
+.loading {
+  margin: auto;
+  width: 100px;
+  .clearfix;
+}
+
+.text {
+  float: left;
+  color: @twitter;
+  font-weight: bold;
+}
+
+.blob {
+  border-radius: 50%;
+  background-color: @twitter;
+  display: block;
+  float: left;
+  margin: 5px 2px;
+  position: relative;
+  top: 6px;
+  height: 3px;
+  width: 3px;
+  animation: loading-blob 1.2s infinite;
+  animation-timing-function: ease-in-out;
+  transform: translate3d(0, 0, 0);
+}
+
+.blob2 {
+  animation-delay: 150ms;
+}
+
+.blob3 {
+  animation-delay: 300ms;
+}
+
+@keyframes fly {
+  0%  { background-position: 0 0;}
+  33% { background-position: -250 0;}
+  66% { background-position: -450px 0;}
+}
+
+@keyframes loading-blob {
+  0% { height: 3px; width: 3px;}
+  25% { height: 7px; width: 7px;}
+  50% { height: 5px; width: 5px; }
+  100% { height: 3px; width: 3px; }
+}
+
+.clearfix() {
+  zoom: 1;
+  &:before { content: ''; display: block; }
+  &:after { content: ''; display: table; clear: both;}
+}
+
+

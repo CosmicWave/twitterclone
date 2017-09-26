@@ -1,13 +1,83 @@
 <div class="cover">
   <div class="container">
     <div class="row">
-      <div class="col-md-4 col-md-offset-7">
+      <div class="col-md-6 col-md-offset-1">
+        <div class="desc">
+        
+<div class="container">
+<div class="col-md-5">
+<div id="watch">
+  <div class="frame-face"></div>
+  <ul class="minute-marks">
+    <li></li><li></li><li></li><li></li><li></li><li></li>
+    <li></li><li></li><li></li><li></li><li></li><li></li>
+    <li></li><li></li><li></li><li></li><li></li><li></li>
+    <li></li><li></li><li></li><li></li><li></li><li></li>
+    <li></li><li></li><li></li><li></li><li></li><li></li>
+    <li></li><li></li><li></li><li></li><li></li><li></li>
+    <li></li><li></li><li></li><li></li><li></li><li></li>
+    <li></li><li></li><li></li><li></li><li></li><li></li>
+  </ul>
+  <div class="digital-wrap">
+    <ul class="digit-hours">
+      <li>23</li>
+      <li>00</li><li>01</li><li>02</li><li>03</li><li>04</li><li>05</li>
+      <li>06</li><li>07</li><li>08</li><li>09</li><li>10</li><li>11</li>
+      <li>12</li><li>13</li><li>14</li><li>15</li><li>16</li><li>17</li>
+      <li>18</li><li>19</li><li>20</li><li>21</li><li>22</li>
+    </ul>
+    <ul class="digit-minutes">
+      <li>10</li><li>11</li>
+      <li>12</li><li>13</li><li>14</li><li>15</li><li>16</li><li>17</li>
+      <li>18</li><li>19</li><li>20</li><li>21</li><li>22</li><li>23</li>
+      <li>24</li><li>25</li><li>26</li><li>27</li><li>28</li><li>29</li>
+      <li>30</li><li>31</li><li>32</li><li>33</li><li>34</li><li>35</li>
+      <li>36</li><li>37</li><li>38</li><li>39</li><li>40</li><li>41</li>
+      <li>42</li><li>43</li><li>44</li><li>45</li><li>46</li><li>47</li>
+      <li>48</li><li>49</li><li>50</li><li>51</li><li>52</li><li>53</li>
+      <li>54</li><li>55</li><li>56</li><li>57</li><li>58</li><li>59</li>
+      <li>00</li><li>01</li><li>02</li><li>03</li><li>04</li><li>05</li>
+      <li>06</li><li>07</li><li>08</li><li>09</li>
+    </ul>
+    <ul class="digit-seconds">
+      <li>20</li><li>21</li><li>22</li><li>23</li>
+      <li>24</li><li>25</li><li>26</li><li>27</li><li>28</li><li>29</li>
+      <li>30</li><li>31</li><li>32</li><li>33</li><li>34</li><li>35</li>
+      <li>36</li><li>37</li><li>38</li><li>39</li><li>40</li><li>41</li>
+      <li>42</li><li>43</li><li>44</li><li>45</li><li>46</li><li>47</li>
+      <li>48</li><li>49</li><li>50</li><li>51</li><li>52</li><li>53</li>
+      <li>54</li><li>55</li><li>56</li><li>57</li><li>58</li><li>59</li>
+      <li>00</li><li>01</li><li>02</li><li>03</li><li>04</li><li>05</li>
+      <li>06</li><li>07</li><li>08</li><li>09</li><li>10</li><li>11</li>
+      <li>12</li><li>13</li><li>14</li><li>15</li><li>16</li><li>17</li>
+      <li>18</li><li>19</li>
+    </ul>
+  </div>
+  <ul class="digits">
+    <li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li>
+    <li>7</li><li>8</li><li>9</li><li>10</li><li>11</li><li>12</li>
+  </ul>
+  <div class="hours-hand"></div>
+  <div class="minutes-hand"></div>
+  <div class="seconds-hand"></div>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="col-md-4">
         <!-- login box -->
         <div class="introbox">
-          <%= form_for(:user, :url => session_path(:user)) do |f| %>
-            <input type="email" name="email" id="email" class="form-control" placeholder="Email"> 
+          <%= form_for(:user, url: session_path(:user)) do |f| %>
+            <input type="email" name="user[email]" id="user_email" class="form-control" placeholder="Email"> 
             <div class="row" style="margin-top: 5px; margin-bottom: 5px;">
-              <div class="col-md-8"><input type="password" name="password" id="password" class="form-control" placeholder="Password"></div>
+              <div class="col-md-8"><input type="password" name="user[password]" id="user_password" class="form-control" placeholder="Password"></div>
               <div class="col-md-4"><%= f.submit 'Sign in', class: 'btn btn-default' %></div>
             </div>
             <%= f.check_box :remember_me %>
@@ -19,20 +89,21 @@
         <div class="introbox" style="margin-top: 10px;">
           <h4>New to AC-Tweet? <span style="color: grey;">Sign up</span></h4>
           <%= form_for(:user, url: registration_path(:user)) do |f| %>
-            
+              
+
             <div class="field">
-              <input type="email" id="email" name="type" class="form-control" placeholder="Email">
+              <input type="email" id="user_email" name="user[email]" class="form-control" placeholder="Email">
             </div>
 
             <div class="field">
               <% if @minimum_password_length %>
               <em>(<%= @minimum_password_length %> characters minimum)</em>
               <% end %>
-              <input type="password" name="password" id="password" class="form-control" placeholder="Password" style="margin-top: 5px; margin-bottom: 5px;">
+              <input type="password" name="user[password]" id="user_password" class="form-control" placeholder="Password" style="margin-top: 5px; margin-bottom: 5px;">
             </div>
 
             <div class="field">
-              <input type="password" name="password_confirmation" id="password_confirmation" class="form-control" placeholder="Confirm Password" style="margin-bottom: 5px;">
+              <input type="password" name="user[password_confirmation]" id="user_password_confirmation" class="form-control" placeholder="Confirm Password" style="margin-bottom: 5px;">
             </div>
 
             <div class="actions">
@@ -44,3 +115,4 @@
     </div>
   </div>
 </div>
+<%= render 'layouts/footer' %>

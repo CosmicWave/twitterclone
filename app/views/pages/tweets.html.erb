@@ -1,0 +1,160 @@
+<div class="tweets">
+  <div class="container">
+    <div class="row">
+      <!-- 
+        User Profile Box (left) 
+      -->
+
+
+      <div class="col-md-3">
+
+        <div class="box" accept="image/*">
+
+          <div class="userpic">
+          <div class="profile-image">
+            <%= image_tag current_user.image, :size => "120x100", :class => "profile-image" %>
+            </div>
+          </div>
+          <div class="username">
+            <h4><%= @username %></h4>
+          </div>
+          <div class="status">
+            <div class="row">
+              <div class="col-md-4">
+                <div class="statushead">Tweets</div>
+                <div class="statsnum">0</div>
+              </div>
+              <div class="col-md-4">
+                <div class="statushead">Following</div>
+                <div class="statsnum">0</div>
+              </div>
+              <div class="col-md-4">
+                <div class="statushead">Followers</div>
+                <div class="statsnum">0</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <!-- 
+        Tweets Box (Center)
+      -->
+      <div class="col-md-6">
+        <div class="tweetshead">
+          <h4>All User Tweets</h4>
+           &bull;
+           <%= link_to root_path do %>
+          <a href="">
+            <small> Refresh</small>
+            <i class="glyphicon glyphicon-refresh"></i>
+          </a>
+          <% end %>
+        </div>
+        <% if Tweet.count == 0 %>
+          <i>There are no tweets.</i>
+        <% else %>
+        <% @userstweets.each do |tweet| %>
+        <div class="box">
+          <div class="boxwrap">
+            <div class="row">
+              <div class="col-md-11">
+                <% user = tweet.user_id %>
+                <% usernamee = User.find(user).email %>
+                <% username, *rest = usernamee.split(/@/) %>
+                <strong>@<%= username %></strong>
+                <span class="tweettime">&bull; <%= time_ago_in_words(tweet.created_at) %> ago </span>
+                <div><%= tweet.body %></div>
+                <div class="row tooltip-tweet" style="margin-top: 20px;">
+                  <div class="col-md-2">
+                    <% tweet_id = tweet.id %>
+                    <% a = Like.where(tweet_id:tweet_id) %>
+                    <% if a.count == 0 %>
+                      <% @usernn = 'Like!' %>
+                    <% else %>
+                      <% @usernn = 'Liked by ' %>
+                      <% a.each do |likeuser| %>
+                        <% username = User.find(likeuser.user_id).email %>
+                        <% @usern, *rest = username.split(/@/) %>
+                        <% if @usernn == 'Liked by ' %>
+                          <% @usernn += @usern %>
+                        <% else %>
+                          <% @usernn += ', ' + @usern %>
+                        <% end %>
+                      <% end %>
+                    <% end %>
+                    <% likecheck = tweet.likes.find_by(user_id: current_user.id) %>
+                    <% if likecheck != nil %>
+                      <% like = current_user.id %>
+                      
+                      <%= link_to tweet_like_path(tweet_id: tweet.id, id: like), method: :delete do %>
+                        <% user_id = current_user.id %>
+                        <button style="color: #1DA1F2;" id="like_user_id" name="like[user_id]" data-toggle="tooltip" data-placement="top" title="<%= @usernn %>!">
+                          <span class="glyphicon glyphicon-heart"></span><small> <%= a.count %></small>
+                        </button>
+                      <% end %>
+                    <% elsif likecheck == nil %>
+                      <%= link_to tweet_likes_path(tweet_id: tweet.id),method: :post do %>
+                      <button style="color: #434A54;" name="" id="tweet_body" data-toggle="tooltip" data-placement="top" title="<%= @usernn %>!">
+                        <span class="glyphicon glyphicon-heart"></span><small> <%= a.count %></small>
+                      </button>
+                      <% end %>
+                    <% end %>
+                  </div>
+                  <div class="col-md-1"><i class="glyphicon glyphicon-comment"></i></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <% end %>
+        <% end %>
+      </div>
+      <!-- 
+        new tweet box (right)
+      -->
+      <div class="col-md-3">
+        <div class="boxwrap usertweet">
+          <%= form_for @tweet, url: tweets_path, method: :post do |f| %>
+            <textarea row="2" name="tweet[body]" id="tweet_body" class="form-control" placeholder="New Tweet"></textarea>
+            <button type="submit" name="commit" class="btn btn-primary" data-type="last">Tweet</button>
+            <!-- <%= f.submit "Tweet", class: 'btn btn-primary pull-righ' %> -->
+          <% end %>
+        </div>
+        <div class="box boxwrap usertweets">
+          <h4>Your tweets</h4>
+          <% if @usertweets.count == 0 %>
+            <i><small>You have no tweets.</small></i>
+          <% end %>
+          <ul class="list-group">
+            <% @usertweets.each do |tweet| %>
+              <li class="list-group-item">
+                <%= link_to tweet_path(id:tweet.id), method: :delete do %>
+                <button class="trash" data-toggle="tooltip" data-placement="top" title="Delete tweet!">
+                  <span class="glyphicon glyphicon-trash"></span>
+                </button>
+                <% end %>
+                <span class="badge badge-primary">0</span>
+                <%= tweet.body %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

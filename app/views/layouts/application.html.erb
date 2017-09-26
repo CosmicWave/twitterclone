@@ -12,5 +12,10 @@
     <%= render 'layouts/message' %>
     <%= render 'layouts/nav' %>
     <%= yield %>
+
+    <script>$(".alert").fadeTo(2000, 500).fadeOut(500, function(){
+        $(".alert").fadeOut(500);
+      }); 
+    </script>
   </body>
 </html>

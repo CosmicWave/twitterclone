@@ -1,15 +1,12 @@
+
+
 <h1>Photo - Tweet</h1>
 
   <%= form_for @tweet, url: tweets_path, method: :post do |f| %>
-
-   
-    
       <%= f.label  :image %>  
       <%= f.file_field :image %>
-    
-       
-        <%= f.submit "Create" %>
+       <%= f.submit "Create" %>
        
        
   
-  <% end %>
+<% end %>
