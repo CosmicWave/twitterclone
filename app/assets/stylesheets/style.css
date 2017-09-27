@@ -562,7 +562,6 @@ footer {
 .loading {
   margin: auto;
   width: 100px;
-  .clearfix;
 }
 
 .text {
