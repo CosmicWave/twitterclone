@@ -20,4 +20,13 @@ Rails.application.routes.draw do
 
   end
 
+  resources :users do
+    resources :notifications, only: [:create, :destroy]
+    member do
+      get :following, :followers
+    end
+  end
+
+  resources :followings,       only: [:create, :destroy]
+
 end

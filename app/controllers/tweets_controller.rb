@@ -1,6 +1,6 @@
 class TweetsController < ApplicationController
 
-def index
+  def index
     @tweets = Tweet.all
    
   end
@@ -8,10 +8,6 @@ def index
   def new
     @tweet = Tweet.new
   end
-
-
-
-
 
   def create
     tweet_params = params[:tweet].permit(:body, :image)
@@ -21,21 +17,10 @@ def index
     redirect_to tweetslist_path
   end
 
-
-
-def show
-  
+  def show
     @tweet = Tweet.find_by(id: params[:id])
-  
-
   end
-
-
-
-
-
-
-
+  
   def destroy
     tweet = Tweet.find(params[:id])
     tweet.destroy

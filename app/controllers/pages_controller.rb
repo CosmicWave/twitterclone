@@ -27,20 +27,22 @@ class PagesController < ApplicationController
     @usertweets = Tweet.where(user_id:@user).order(:created_at).reverse
     @userstweets = Tweet.all.order(:created_at).reverse
 
-    
+    # user tweets count
+    user = current_user.id
+    @tweets = Tweet.where(user_id:user)
 
+    @userfollow = current_user
+
+    @alluser = User.all
+
+    @noti = Notification.where(tweet: @user)
+    
   end
-  
-  
 
   def profile
     @name = current_user.name
     @email = current_user.email
   end
-
-
-
-
 
   
 end

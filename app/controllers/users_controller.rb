@@ -7,8 +7,19 @@ class UsersController < ApplicationController
     	user.save
     	redirect_to edit_user_registration_path
  	end
+  
+  def following
+    @title = "Following"
+    @user  = User.find(params[:id])
+    @users = @user.following.paginate(page: params[:page])
+    render 'show_follow'
+  end
 
+  def followers
+    @title = "Followers"
+    @user  = User.find(params[:id])
+    @users = @user.followers.paginate(page: params[:page])
+    render 'show_follow'
+  end
 
-	
-
- end
+end
