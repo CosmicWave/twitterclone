@@ -7,7 +7,8 @@
       <div class="col-md-3">
         <div class="box">
           <div class="userpic">
-            <span><i class="glyphicon glyphicon-camera"></i></span>
+<!--             <span><i class="glyphicon glyphicon-camera"></i></span> -->
+            <%= image_tag current_user.image, :size => "120x100", :class => "profile-image" %>
           </div>
           <div class="username">
             <h4><%= @username %></h4>
@@ -29,7 +30,6 @@
             </div>
           </div>
         </div>
-
         <div class="box" id="whotofollow">
           <table class="table table-hover tablecont">
             <thead>
@@ -81,7 +81,6 @@
           </a>
           <% end %>
         </div>
-        
         <!--
          check for any tweets 
         -->
@@ -112,7 +111,6 @@
                   <div class="col-md-2">
                     <% tweet_id = tweet.id %>
                     <% a = Like.where(tweet_id:tweet_id) %>
-
                     <!-- 
                     function for like by whoever using tooltip 
                     -->
@@ -154,9 +152,7 @@
                     <!-- 
                     end of check if user liked a tweet 
                     -->
-
                   </div>
-
                   <!--
                    reply function 
                   -->
@@ -166,13 +162,10 @@
                       <span class="glyphicon glyphicon-comment" data-toggle="tooltip" data-placement="top" title="Reply"></span><small> <%= if tweet.replies.count != 0 then tweet.replies.count end %></small>
                     </button>
                     <% end %>
-
-
                   </div>
                   <!--
                    end of reply function 
                   -->
-
                 </div>
               </div>
             </div>
@@ -185,7 +178,6 @@
       <!--
        end of  call each tweet  
       -->
-
       <!-- 
         new tweet box (right)
       -->
@@ -210,7 +202,6 @@
                   <span class="glyphicon glyphicon-trash" data-toggle="tooltip" data-placement="top" title="Delete tweet!"></span>
                 </button>
                 <% end %>
-                
                 <span class="badge badge-default glyphicon glyphicon-comment">
                     <%= tweet.replies.count %>
                 </span><span class="badge badge-default glyphicon glyphicon-heart">
@@ -220,7 +211,6 @@
                 <%= tweet.body %>
                 <% end %>
               </li>
-              
             <% end %>
           </ul>
         </div>

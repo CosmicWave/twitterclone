@@ -37,11 +37,12 @@ class PagesController < ApplicationController
 
     @noti = Notification.where(tweet: @user)
     
-   
-
-    
-
   end
-  
+
+  def profile
+    @name = current_user.name
+    @email = current_user.email
+  end
+
   
 end
