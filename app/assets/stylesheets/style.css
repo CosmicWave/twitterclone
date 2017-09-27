@@ -57,21 +57,42 @@ body {
     }
 }
 .item:nth-child(1) {
-    background: url(https://ununsplash.imgix.net/photo-1417021423914-070979c8eb34?q=75&fm=jpg&s=55746bd56e02a131b1e48c12196ea866) no-repeat center center fixed;
+    background: url(cover) no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
 }
 .item:nth-child(2) {
-    background: url(https://ununsplash.imgix.net/reserve/oY3ayprWQlewtG7N4OXl_DSC_5225-2.jpg?q=75&fm=jpg&s=85ab821f3fa535036a68155aab571bad) no-repeat center center fixed;
+    background: url(cover2) no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
 }
 .item:nth-child(3) {
-    background: url(https://unsplash.imgix.net/photo-1414073875831-b47709631146?q=75&fm=jpg&s=731b6d5150eea8bafa63ae8194e72ebd) no-repeat center center fixed;
+    background: url(cover3) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+.item:nth-child(4) {
+    background: url(cover4) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+.item:nth-child(5) {
+    background: url(cover5) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+.item:nth-child(6) {
+    background: url(cover6) no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -210,18 +231,6 @@ footer {
   float: right;
  }
 
- .userpic {
-  text-align: center;
-  height: 100px;
-  background-color: #FF6327;
-  color: white;
-  padding-top: 20px;
- }
-
- .userpic span {
-  font-size: 50px;
- }
-
  .username {
   text-align: center;
   padding-right: 5px;
@@ -328,18 +337,6 @@ footer {
  .usertweet button {
   margin-top: 5px;
   float: right;
- }
-
- .userpic {
-  text-align: center;
-  height: 100px;
-  background-color: #1DA1F2;
-  color: white;
-  padding-top: 20px;
- }
-
- .userpic span {
-  font-size: 50px;
  }
 
  .username {
