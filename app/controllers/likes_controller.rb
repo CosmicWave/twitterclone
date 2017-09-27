@@ -15,6 +15,8 @@ class LikesController < ApplicationController
     tweetuser = Tweet.find(params[:tweet_id]).user_id
     notify = user.notifications.create(notify: message, tweet: tweetuser )
 
+    @userstweets = Tweet.all.order(:created_at).reverse
+
 #   redirect_back(fallback_location: root_path)
     
   end
@@ -23,6 +25,8 @@ class LikesController < ApplicationController
     @tweet = Tweet.find(params[:tweet_id])
     @like = Like.find_by(tweet_id: params[:tweet_id], user_id: current_user.id)
     @like.destroy
+
+    @userstweets = Tweet.all.order(:created_at).reverse
 
 #  redirect_back(fallback_location: root_path)
   end

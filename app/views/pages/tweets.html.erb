@@ -9,7 +9,9 @@
           <div>
 <!--             <span><i class="glyphicon glyphicon-camera"></i></span> -->
             <!-- <%= image_tag current_user.image, :size => "120x100", :class => "profile-image" %> -->
+            <% if current_user.image.url != nil %>
             <center><%= image_tag current_user.image.url, :class=> "img-circular" %></center>
+            <% end %>
           </div>
           <div class="username">
             <h4><%= @username %></h4>
