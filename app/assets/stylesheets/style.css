@@ -210,18 +210,6 @@ footer {
   float: right;
  }
 
- .userpic {
-  text-align: center;
-  height: 100px;
-  background-color: #FF6327;
-  color: white;
-  padding-top: 20px;
- }
-
- .userpic span {
-  font-size: 50px;
- }
-
  .username {
   text-align: center;
   padding-right: 5px;
@@ -328,18 +316,6 @@ footer {
  .usertweet button {
   margin-top: 5px;
   float: right;
- }
-
- .userpic {
-  text-align: center;
-  height: 100px;
-  background-color: #1DA1F2;
-  color: white;
-  padding-top: 20px;
- }
-
- .userpic span {
-  font-size: 50px;
  }
 
  .username {
