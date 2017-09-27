@@ -21,7 +21,7 @@
               </div>
               <div class="col-md-4">
                 <div class="statushead">Following</div>
-                <div class="statsnum"><%= @userfollow.following.count %></div>
+                <div class="statsnum" id="statscreate"><%= @userfollow.following.count %></div>
               </div>
               <div class="col-md-4">
                 <div class="statushead">Followers</div>
@@ -40,24 +40,8 @@
               <% if current_user != user %>
               <% email = user.email %>
               <% useremail, *rest = email.split(/@/) %>
-              <tr>
-                <td>
-                  <% if current_user.following?(user) %>
-
-                    <%= form_for(current_user.active_followings.find_by(followed_id: user.id),
-                                 html: { method: :delete }) do |f| %>
-                      <button class="btn btn-sm pull-right" name="commit">Unfollow</button>
-                      <%= useremail %>
-                    <% end %>
-                  <% else %>
-                    
-                    <%= form_for(current_user.active_followings.build) do |f| %>
-                      <%= hidden_field_tag :followed_id, user.id %>
-                      <button class="btn btn-default btn-sm pull-right" name="commit">follow</button>
-                    <% end %>
-                    <%= useremail %>
-                  <% end %>
-                </td>
+              <tr id="follow-<%= user.id %>">
+                <%= render 'layouts/follow', {user: user, useremail: useremail } %>
               </tr>
               <% end %>
               <% end %>
@@ -92,89 +76,11 @@
         <!--
          call each tweet 
         -->
-        <% @userstweets.each do |tweet| %>
-        <% user = User.find(tweet.user_id) %>
-        <% if current_user.following?(user) %>
-        <% user = tweet.user_id %>
-        <% usernamee = User.find(user).email %>
-        <% @usernamee, *rest = usernamee.split(/@/) %>
-        
-        <div class="box">
-          <div class="boxwrap">
-            <div class="row">
-              <div class="col-md-1"><div class="profilepic img-circle"><i class="glyphicon glyphicon-camera"></i></div></div>
-              <div class="col-md-11">
-                <strong>@<%= @usernamee %></strong>
-                <span class="tweettime">&bull; <%= time_ago_in_words(tweet.created_at) %> ago </span>
-                <div><%= tweet.body %></div>
-                <div class="row tooltip-tweet" style="margin-top: 20px;">
-                  <div class="col-md-2">
-                    <% tweet_id = tweet.id %>
-                    <% a = Like.where(tweet_id:tweet_id) %>
-                    <!-- 
-                    function for like by whoever using tooltip 
-                    -->
-                    <% if a.count == 0 %>
-                      <% @usernn = 'Like!' %>
-                    <% else %>
-                      <% @usernn = 'Liked by ' %>
-                      <% a.each do |likeuser| %>
-                        <% username = User.find(likeuser.user_id).email %>
-                        <% @usern, *rest = username.split(/@/) %>
-                        <% if @usernn == 'Liked by ' %>
-                          <% @usernn += @usern %>
-                        <% else %>
-                          <% @usernn += ', ' + @usern %>
-                        <% end %>
-                      <% end %>
-                    <% end %>
-                    <!-- 
-                    end of like by whoever function 
-                    -->
-                    
-                    <!-- 
-                    check if the user has liked a tweet 
-                    -->
-                    <% likecheck = tweet.likes.find_by(user_id: current_user.id) %>
-                    <% if likecheck != nil %>
-                      <%= link_to tweet_like_path(tweet_id: tweet.id, id: likecheck.id), method: :delete do %>
-                        <button style="color: #1DA1F2;" data-toggle="tooltip" data-placement="top" title="<%= @usernn %>!">
-                          <span class="glyphicon glyphicon-heart"></span><small id="likecount"> <%= a.count %></small>
-                        </button>
-                      <% end %>
-                    <% elsif likecheck == nil %>
-                      <%= link_to tweet_likes_path(tweet_id: tweet.id),method: :post do %>
-                      <button style="color: #434A54;" name="" id="tweet_body" data-toggle="tooltip" data-placement="top" title="<%= @usernn %>!">
-                        <span class="glyphicon glyphicon-heart"></span><small> <%= a.count %></small>
-                      </button>
-                      <% end %>
-                    <% end %>
-                    <!-- 
-                    end of check if user liked a tweet 
-                    -->
-                  </div>
-                  <!--
-                   reply function 
-                  -->
-                  <div class="col-md-2">
-                    <%= link_to new_tweet_reply_path(tweet_id: tweet.id) do %>
-                    <button style="color: #434A54;">
-                      <span class="glyphicon glyphicon-comment" data-toggle="tooltip" data-placement="top" title="Reply"></span><small> <%= if tweet.replies.count != 0 then tweet.replies.count end %></small>
-                    </button>
-                    <% end %>
-                  </div>
-                  <!--
-                   end of reply function 
-                  -->
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <% end %>
-        <% end %>
-        <% end %>
+        <div id="tweetupdate">
+        <%= render 'layouts/tweet', userstweets: @userstweets %>
       </div>
+      <% end %>
+    </div>
       <!--
        end of  call each tweet  
       -->

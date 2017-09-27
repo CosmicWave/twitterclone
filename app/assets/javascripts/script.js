@@ -4,8 +4,6 @@ $(document).ready(function() {
       container: "body"
 
     });  
-});
-    }); 
   $('.carousel').carousel(); 
 });
 
