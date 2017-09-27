@@ -6,10 +6,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :tweets
-  has_many :likes
-  has_many :replies
-  has_many :notifications
+  has_many :tweets, dependent: :destroy
+  has_many :likes, dependent: :destroy
+  has_many :replies, dependent: :destroy
+  has_many :notifications, dependent: :destroy
 
   has_many :active_followings, class_name:  "Following",
                                   foreign_key: "follower_id",

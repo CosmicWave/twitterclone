@@ -10,7 +10,7 @@ class TweetsController < ApplicationController
   end
 
   def create
-    tweet_params = params[:tweet].permit(:body, :image)
+    tweet_params = params[:tweet].permit(:body)
     tweet = Tweet.new(tweet_params)
     tweet.user_id = current_user.id
     tweet.save
