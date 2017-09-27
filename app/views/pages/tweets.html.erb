@@ -71,7 +71,7 @@
         <!--
          check for any tweets 
         -->
-        <% if Tweet.count == 0 %>
+        <% if Tweet.count - Tweet.where(user_id: current_user.id).count == 0 %>
           <i>There are no tweets.</i>
         
         <% else %>

@@ -17,7 +17,7 @@
                 <li class="dropdown">
                   <a class="nav-link dropdown-toggle glyphicon glyphicon-bell" href="#" data-toggle="dropdown" style="font-size: 18px;">
                   <span class="badge badge-danger" style="font-size: 12px;"><%= Notification.where(tweet: current_user.id).count %></span></a>
-                  <ul class="dropdown-menu" style="background-color: white" role="menu">
+                  <ul class="dropdown-menu" style="background-color: white; padding: 10px; max-height: 300px; overflow: auto; " role="menu">
                     <% @noti.each do |n| %>
                     <li style="width: 300px;">
                       <%= n.notify %>

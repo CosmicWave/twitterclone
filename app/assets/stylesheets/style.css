@@ -184,15 +184,20 @@ footer {
  #whotofollow button:hover {
   background: #1DA1F2;
  }
+
+ .tablecont {
+  width: 100%;
+ }
+
+.tablecont tbody {
+  display: block;
+}
  
 .tablecont tbody { 
-  max-height: 100px;   
-  width: 100%;
-  
-  overflow: hidden;
+  max-height: 300px;   
+  /*width: 100%;*/
+  overflow: auto;
 }
-
-.tablecont td { width: 100%; }
 
  .tweetshead h4 {
   display: inline-block;
