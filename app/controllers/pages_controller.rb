@@ -39,6 +39,7 @@ class PagesController < ApplicationController
     
   end
 
+
   def profile
     @name = current_user.name
     @email = current_user.email

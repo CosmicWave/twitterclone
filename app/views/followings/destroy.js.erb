@@ -1,0 +1,3 @@
+$('#follow-<%= @user.id %>').html('<%= j render 'layouts/follow', user: @user %>');
+$('#statscreate').html('<%= current_user.following.count %>');
+$('#tweetupdate').html('<%= j render 'layouts/tweet', userstweets: @userstweets %>');

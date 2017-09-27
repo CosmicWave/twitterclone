@@ -13,10 +13,10 @@
             <ul class="nav navbar-nav navbar-right">
               <% if user_signed_in? %>
               <li><%= link_to "Logout", destroy_user_session_path, method: :delete, class: 'nav-link' %></li>
-              <% if @noti.count != 0 %>
+              <% if Notification.where(tweet: current_user.id).count != 0 %>
                 <li class="dropdown">
                   <a class="nav-link dropdown-toggle glyphicon glyphicon-bell" href="#" data-toggle="dropdown" style="font-size: 18px;">
-                  <span class="badge badge-danger" style="font-size: 12px;"><%= @noti.count %></span></a>
+                  <span class="badge badge-danger" style="font-size: 12px;"><%= Notification.where(tweet: current_user.id).count %></span></a>
                   <ul class="dropdown-menu" style="background-color: white" role="menu">
                     <% @noti.each do |n| %>
                     <li style="width: 300px;">
@@ -28,12 +28,21 @@
                   </ul>
                 </li>
                   <% else %>
-                  <li class="dropdown">
-                  <a class="nav-link glyphicon glyphicon-bell" href="#" style="font-size: 18px;">
-                  <span style="font-size: 12px;"></span></a></li>
+                  <li>
+                    <%= link_to do %>
+                  <span class="nav-link glyphicon glyphicon-bell" style="font-size: 18px;">
+                  </span>
+                  <% end %>
+                </li>
                   <% end %>
                   
-                <li><a class="nav-link glyphicon glyphicon-user" href="#" style="font-size: 18px;"></a></li>
+                <li>
+                  <%= link_to edit_user_registration_path do %>
+                  <span class="nav-link glyphicon glyphicon-user" href="#" style="font-size: 18px;">
+                  <span style="font-size: 12px;"></span></span>
+                  <% end %>
+                </li>
+                  
               <% end %>
               <!-- <li><a class="nav-link" href="#">About</a></li> -->
               

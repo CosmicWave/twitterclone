@@ -26,6 +26,8 @@ class RepliesController < ApplicationController
     end
     # end of like by whoever function 
 
+    @noti = Notification.where(tweet: @user)
+
     # For all replies show
     @allreplies = @tweet.replies.all
     # end of all reply show
@@ -38,6 +40,18 @@ class RepliesController < ApplicationController
     @reply = tweet.replies.new(reply_params)
     @reply.user_id = current_user.id
     @reply.save
+
+    word = @reply.body.split(/\W+/)
+    words = word[0] 
+
+    userreply = @reply.user_id
+    username, *rest = User.find(userreply).email.split(/@/)
+    user = current_user
+
+    message = username + ' replied to your tweet, ' + words + '...'
+    tweetuser = Tweet.find(params[:tweet_id]).user_id
+    notify = user.notifications.create(notify: message, tweet: tweetuser )
+
     redirect_back(fallback_location: root_path)
     # # respond_to do |f|
     # #   f.html { new_tweet_reply_path(tweet_id: tweet.id) }
