@@ -93,6 +93,10 @@
          call each tweet 
         -->
         <% @userstweets.each do |tweet| %>
+
+        
+
+
         <% user = User.find(tweet.user_id) %>
         <% if current_user.following?(user) %>
         <% user = tweet.user_id %>
@@ -110,7 +114,7 @@
                 <div class="row tooltip-tweet" style="margin-top: 20px;">
                   <div class="col-md-2">
                     <% tweet_id = tweet.id %>
-                    <% a = Like.where(tweet_id:tweet_id) %>
+                    <% a = Like.where(tweet_id:tweet.id) %>
                     <!-- 
                     function for like by whoever using tooltip 
                     -->
@@ -135,20 +139,21 @@
                     <!-- 
                     check if the user has liked a tweet 
                     -->
-                    <% likecheck = tweet.likes.find_by(user_id: current_user.id) %>
-                    <% if likecheck != nil %>
-                      <%= link_to tweet_like_path(tweet_id: tweet.id, id: likecheck.id), method: :delete do %>
-                        <button style="color: #1DA1F2;" data-toggle="tooltip" data-placement="top" title="<%= @usernn %>!">
-                          <span class="glyphicon glyphicon-heart"></span><small id="likecount"> <%= a.count %></small>
-                        </button>
-                      <% end %>
-                    <% elsif likecheck == nil %>
-                      <%= link_to tweet_likes_path(tweet_id: tweet.id),method: :post do %>
-                      <button style="color: #434A54;" name="" id="tweet_body" data-toggle="tooltip" data-placement="top" title="<%= @usernn %>!">
-                        <span class="glyphicon glyphicon-heart"></span><small> <%= a.count %></small>
-                      </button>
-                      <% end %>
-                    <% end %>
+                    
+                    <div id="tweet-details-<%= tweet.id %>"><%= render 'pages/likes_button', tweet: tweet %></div>
+                    
+
+
+
+
+
+
+
+
+
+
+
+
                     <!-- 
                     end of check if user liked a tweet 
                     -->
@@ -218,3 +223,4 @@
     </div>
   </div>
 </div>
+
